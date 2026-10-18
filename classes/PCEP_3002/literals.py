@@ -1,6 +1,5 @@
 # A Python Literal is the opposite of a variable
 
-
 # Examples of literals:
 # Integers, floating point numbers, booleans, strings, None, collections, lists etc
 
