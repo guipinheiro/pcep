@@ -79,7 +79,10 @@
 
 ## Operators
 
-- Priority (in crescent order): `- '+  %  //  /  *  **`
+- Priority table -> in the same line they have the same priority, the first one that appear will be executed first
+
+![alt text](priority_op.png)
+
 - If you use a float number with integer to make a computation, the result will always be a float (division always results in a float)
 - `//` -> integer division (unless we use a float in the computation), round down the result
 - Many operators are binary operators (work with 2 components, eg. `5 - 5`)
@@ -131,8 +134,11 @@
   - Python executes its code causing the desired effect/result
   - Python returns to the code
 - Positional arguments must be defined before keyword args
+- Functions are first defined, then invoked, have their body executed, and finally return to the line after the function invocation
+- They need to be defined BEFORE they are invoked
+- You cannot have a function and a variable with the same name
 
-## Basic Python built-in functions
+### Basic Python built-in functions
 
 - `print(*objects, sep=' ', end='\n', file=None, flush=False)`
   - Prints anything into the console
@@ -150,4 +156,55 @@
   - Positional argument prompt will be a text displayed before the user enters the text
   - If you know or you check if the input can be another type of variable (like an int), you can cast it to the other type and then you can make math operations
 
-## Boolean Logic
+### Functions vs Methods
+
+- Function
+  - Does not belong to any type of object
+  - It gets data, may create new data and (generally) produces a result
+  - Is owned by the whole code
+  - Example: `result = function(arg)`
+- Method
+  - Is a specifc kind of function
+  - Is able to change the state of a selected entity
+  - Is owned by the data it works for
+  - Example: `result = data.method(arg)
+
+### Decomposition
+
+- Decomposition is the practice of breaking your code in an reusable way, allowing it to be implemented as a set of separately written functions packed together in different modules
+- Functions can come from python, modules of even inside your own code
+
+### Parameterized functions
+
+- Functions are able to accept data through parameters defined in it
+- Parameters only exist inside functions they have been defined
+  - Arguments exist outside functions
+- Assigned a value to the parameter is done at the time of the function's invocation
+- You CAN have a variable with the same name as a function parameter (because the latter only exists inside the function)
+- You can also have keyword arguments in your function so during invocation you have to explicitly tell which arguments is receiving a specific value
+
+### Return instructions
+
+- Functions can, besides having an effect, have results, i.e. `return` a value
+- The `return` keyword can also be used to make a function stop earlier
+- If the function returns something but you don't use (for example, assign it to a variable), the value will be lost
+- If a function returns nothing, it will implicitly return `None`
+
+### Functions Scope
+
+- The scope of a name is the part of the code where the name is properly recognizable
+  - For example, the scope of a function's parmeters it the function itself, it is inaccessible from the ouytside
+  - However the opposite is not true. A variable created outside a function can be accessed inside it (but you can't access the outside variable if the function has a variable inside it with the same name)
+  - A variable existing outside a function has a scope inside the functions' bodies, excluding those of them which define a variable of the same name
+- You can use the `global` keyword to access a variable outside its context
+- Changing the parameter's value doesn't propagate outside the function (in any case, not when the variable is a scalar)
+
+## The `None` value
+
+- Does not represetn any reasonable value
+- MUST NOT take part in any expression (like `None + 2`)
+- You can assign it to a variable or compare something to None
+
+## Miscellaneous
+
+- You can use `\` to break a line in Python
